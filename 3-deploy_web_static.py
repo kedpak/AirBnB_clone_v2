@@ -1,4 +1,4 @@
-#!/usr/bin/pythhon3
+#!/usr/bin/python3
 """
 distribute an archive to web servers
 """
@@ -10,6 +10,7 @@ from fabric.api import *
 from fabric.operations import run, put, sudo
 
 env.hosts = ['66.70.184.29', '34.228.245.175']
+
 
 def do_pack():
     ''' pack web_static directory into tgz archive
@@ -44,6 +45,7 @@ def do_deploy(archive_path):
         return True
     except Exception as e:
         return False
+
 
 def deploy():
     """creates and distributes an archive to web servers"""
