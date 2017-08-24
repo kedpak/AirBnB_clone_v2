@@ -49,7 +49,7 @@ def deploy():
     """creates and distributes an archive to web servers"""
     try:
         pack = do_pack()
-        d_deploy = do_deploy(archive_path)
+        d_deploy = do_deploy(pack)
         return(d_deploy)
     except:
         return(False)
