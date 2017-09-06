@@ -25,7 +25,7 @@ def hbnb_route():
 def c_route(text):
     return ('C %s' % text.replace('_', ' '))
 
-@app.route('/', defaults={'text': 'Python is cool'})
+@app.route('/python', defaults={'text': 'is cool'})
 @app.route('/python/<text>', methods=['GET'])
 def python_route(text):
     return ('Python %s' % text.replace('_', ' '))
