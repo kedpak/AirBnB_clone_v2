@@ -17,6 +17,7 @@ app.url_map.strict_slashes = False
 def hello_route():
     return ("Hello HBNB!")
 
+
 @app.route('/hbnb', methods=['GET'])
 def hbnb_route():
     return ("HBNB")

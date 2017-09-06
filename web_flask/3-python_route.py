@@ -17,13 +17,16 @@ app.url_map.strict_slashes = False
 def hello_route():
     return ("Hello HBNB!")
 
+
 @app.route('/hbnb', methods=['GET'])
 def hbnb_route():
     return ("HBNB")
 
+
 @app.route('/c/<text>', methods=['GET'])
 def c_route(text):
     return ('C %s' % text.replace('_', ' '))
+
 
 @app.route('/python', defaults={'text': 'is cool'})
 @app.route('/python/<text>', methods=['GET'])
