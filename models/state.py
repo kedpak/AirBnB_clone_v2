@@ -10,22 +10,23 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 import os
-
+import models
 
 class State(BaseModel, Base):
     """State class handles all application states"""
 
-    if os.getenv('HBNB_TYPE_STORAGE', 'fs') == 'db':
+    if os.getenv('HBNB_TYPE_STORAGE') == 'db':
         __tablename__ = 'states'
         name = Column(String(128), nullable=False)
         cities = relationship('City', cascade="all, delete", backref='state')
     else:
         name = ""
 
-    if os.getenv('HBNB_TYPE_STORAGE', 'fs') != 'db':
+    if os.getenv('HBNB_TYPE_STORAGE') != 'db':
+        @property
         def cities(self):
             city_list = []
-            for city in storage.all('City'):
+            for city in models.storage.all('City'):
                 city_list.append(city)
             return (city_list)
 
