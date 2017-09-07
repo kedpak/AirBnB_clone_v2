@@ -75,4 +75,4 @@ class FileStorage:
 
     def close(self):
         """ deserialize json file to ojbects """
-        reload()
+        self.reload()

@@ -28,7 +28,8 @@ class State(BaseModel, Base):
         def cities(self):
             city_list = []
             for c, v in models.storage.all('City').items():
-                city_list.append(v)
+                if v.state_id == self.id:
+                    city_list.append(v)
             return (city_list)
 
     def __init__(self, *args, **kwargs):
