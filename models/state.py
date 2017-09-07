@@ -12,6 +12,7 @@ from sqlalchemy.orm import relationship
 import os
 import models
 
+
 class State(BaseModel, Base):
     """State class handles all application states"""
 
