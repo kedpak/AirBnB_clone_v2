@@ -63,3 +63,7 @@ class FileStorage:
         """ to delete obj from __objects if inside """
         if obj in self.__objects:
             del(obj)
+
+    def close(self):
+        """ deserialize json file to ojbects """
+        reload()

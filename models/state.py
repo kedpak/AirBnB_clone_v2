@@ -21,6 +21,9 @@ class State(BaseModel, Base):
         cities = relationship('City', cascade="all, delete", backref='state')
     else:
         name = ""
+        def cities(self):
+            return storage.City
+            
 
     def __init__(self, *args, **kwargs):
         """instantiates a new state"""
