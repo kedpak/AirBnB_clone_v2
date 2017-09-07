@@ -26,8 +26,8 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             city_list = []
-            for city in models.storage.all('City'):
-                city_list.append(city)
+            for c, v in models.storage.all('City').items():
+                city_list.append(v)
             return (city_list)
 
     def __init__(self, *args, **kwargs):
