@@ -48,8 +48,6 @@ class DBStorage:
         """returns private attribute: __objects"""
         myclasses = ["User", "State", "City", "Amenity", "Place", "Review"]
         search = {}
-        Session = sessionmaker(bind=self.__engine)
-        self.__session = Session()
 
         if cls is None:
             '''for cls_name in myclasses:'''
@@ -82,7 +80,6 @@ class DBStorage:
         from the engine (self.__engine)
         """
         Base.metadata.create_all(self.__engine)
-        Session = sessionmaker(bind=self.__engine)
         self.__session = scoped_session(sessionmaker(bind=self.__engine))
 
     def delete(self, obj=None):

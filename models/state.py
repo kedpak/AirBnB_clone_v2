@@ -21,9 +21,13 @@ class State(BaseModel, Base):
         cities = relationship('City', cascade="all, delete", backref='state')
     else:
         name = ""
+
+    if os.getenv('HBNB_TYPE_STORAGE', 'fs') != 'db':
         def cities(self):
-            return storage.City
-            
+            city_list = []
+            for city in storage.all('City'):
+                city_list.append(city)
+            return (city_list)
 
     def __init__(self, *args, **kwargs):
         """instantiates a new state"""
