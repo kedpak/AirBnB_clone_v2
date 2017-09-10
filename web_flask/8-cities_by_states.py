@@ -14,12 +14,18 @@ app.url_map.strict_slashes = False
 
 @app.route('/cities_by_states', methods=['GET'])
 def fetch_cities():
+    """
+    fetches state data from storage and renders
+    """
     state = storage.all('State').values()
     return (render_template('8-cities_by_states.html', state=state))
 
 
 @app.teardown_appcontext
 def route_close(exception):
+    """
+    closes storage after fetch
+    """
     storage.close()
 
 
