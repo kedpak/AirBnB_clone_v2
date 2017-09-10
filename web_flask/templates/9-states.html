@@ -7,29 +7,21 @@
       {% if iden == "" %}
         <H1>States</H1>
         <UL>
-
 	    {% for states in state|sort(attribute='name') %}
 	    <LI>{{states.id}}: <B>{{states.name}}</B></LI>
 	    {% endfor %}
-	    
         </UL>
-
-       {% elif iden == None -%}
+       {% elif iden == None %}
 	<H1>Not found!</H1>
-
        {% else %}
 	<H1>State: {{state_name}}</H1>
         <H3>Cities:</H3>
 	<UL>
-	  {% for i in state|sort(attribute='name') -%}
-	    {% if i.id == iden %}
-	      {%- for j in i.cities %}
+	  {% for j in state_city|sort(attribute='name') %}
                  <LI>{{j.id}}: <B>{{j.name}}</B></LI>  
-	      {% endfor %}
-	     {% endif %}
-	  {%- endfor %}
+	{% endfor %}
         </UL>
-	{% endif %}
+        {% endif %}
 
     </BODY>
 </HTML>
