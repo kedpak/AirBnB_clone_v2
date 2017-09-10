@@ -21,19 +21,13 @@ def fetch_state(id):
     else:
         try:
             state = storage.all('State').values()
-            city_list = []
-            city_id = []
             for i in state:
                 if i.id == id:
                     state_name = i.name
-                    for j in i.cities:
-                        city_id.append(j.id)
-                        city_list.append(j.name)
-            return render_template('9-states.html', city_id=city_id,
-                                   state_name=state_name, city_list=city_list)
+            return render_template('9-states.html', iden=id,
+                                   state_name=state_name, state=state)
         except:
-            return render_template('9-states.html', city_id=None,
-                                   state_name=None, city_list=None, iden=None)
+            return render_template('9-states.html', iden=None)
 
 
 @app.teardown_appcontext
