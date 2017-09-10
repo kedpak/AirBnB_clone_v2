@@ -21,10 +21,10 @@
 	<H1>State: {{state_name}}</H1>
         <H3>Cities:</H3>
 	<UL>
-	  {% for city in city_list %}
+	  {%- for city in city_list %}
 	    {% set counter = 0 %}
 	    <LI>{{city_id[counter]}}: <B>{{city}}</B></LI>
-	    {% set counter = counter + 1 %}
+	    {%- set counter = counter + 1 -%}
 	    {% endfor %}
         </UL>
 	{% endif %}
