@@ -15,8 +15,7 @@ app.url_map.strict_slashes = False
 @app.route('/cities_by_states', methods=['GET'])
 def fetch_cities():
     state = storage.all('State').values()
-    city = storage.all('City').values()
-    return (render_template('8-cities_by_states.html', state=state, city=city))
+    return (render_template('8-cities_by_states.html', state=state))
 
 
 @app.teardown_appcontext
