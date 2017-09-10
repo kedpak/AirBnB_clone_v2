@@ -24,8 +24,10 @@ def fetch_state(id):
             for i in state:
                 if i.id == id:
                     state_name = i.name
+                    state_city = i.cities
             return render_template('9-states.html', iden=id,
-                                   state_name=state_name, state=state)
+                                   state_name=state_name, state=state,
+                                   state_city=state_city)
         except:
             return render_template('9-states.html', iden=None)
 
